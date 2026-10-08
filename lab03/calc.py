@@ -8,5 +8,8 @@ elif x == "-":
 elif x == "*":
     s = a * b
 elif x == "/":
-    s = a / b
+    if b == 0:
+        print('Error')
+    else:
+        s = a / b
 print(s)
