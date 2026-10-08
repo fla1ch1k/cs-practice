@@ -5,4 +5,6 @@ if x == "+" :
     s = a + b
 elif x == "-":
     s = a - b
+elif x == "*":
+    s = a * b
 print(s)
