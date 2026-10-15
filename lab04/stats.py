@@ -16,3 +16,13 @@ def parse_record(line: str) -> dict:
         raise ValueError(f"Температура не число: {temp_text!r}")
 
     return {"city": city, "temperature": temperature, "date": date}
+def read_valid(lines: list[str]) -> list[dict]:
+    records = []
+    for line in lines:
+        if line.strip() == "":
+            continue # пустые строки пропускаем молча
+        try:
+            records.append(parse_record(line))
+        except ValueError:
+            continue # негодную строку пропускаем, программа не падает
+    return records
