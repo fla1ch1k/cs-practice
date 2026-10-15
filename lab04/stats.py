@@ -11,7 +11,7 @@ def parse_record(line: str) -> dict:
         raise ValueError(f"Пустой город или дата: {line!r}")
 
     try:
-        temperature = float(temp_text)
+        temperature = float(temp_text.replace(",", "."))
     except ValueError:
         raise ValueError(f"Температура не число: {temp_text!r}")
 
