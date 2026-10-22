@@ -48,3 +48,5 @@ def format_report(counts, errors):
     for message, count in errors:
         text += f"- {message} — {count}\n"
     return text
+#всё конец
+
