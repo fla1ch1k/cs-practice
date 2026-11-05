@@ -11,3 +11,17 @@ def count_by_extension(paths):
         else:
             result[ext] = 1
     return result
+def deepest_path(paths):
+    if not paths:
+        return ""
+    return min(paths, key=lambda p: (-p.count("/"), p))
+
+
+def human_size(n_bytes):
+    if n_bytes < 1024:
+        return f"{n_bytes} Б"
+    size = n_bytes
+    for unit in ["КБ", "МБ", "ГБ", "ТБ"]:
+        size = size / 1024
+        if size < 1024 or unit == "ТБ":
+            return f"{size:.1f} {unit}"
