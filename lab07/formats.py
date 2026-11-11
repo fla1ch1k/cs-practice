@@ -50,3 +50,18 @@ def parse_settings(lines):
                 current_list = None
                 result[key] = convert_value(value)
     return result
+
+def merge_by_key(rows, extra, key="id"):
+    result = []
+    for row in rows:
+        merged = {}
+        info = extra.get(row.get(key))
+        if info:
+            merged.update(info)
+        merged.update(row)
+        result.append(merged)
+    return result
+
+
+def records_to_json(records):
+    return json.dumps(records, indent=2, sort_keys=True, ensure_ascii=False)
