@@ -11,6 +11,7 @@ def csv_to_records(text):
         values = [value.strip() for value in line.split(",")]
         records.append(dict(zip(header, values)))
     return records
+
 def convert_value(text):
     low = text.lower()
     if low in ("true", "yes"):
@@ -26,7 +27,6 @@ def convert_value(text):
     except ValueError:
         pass
     return text
-
 
 def parse_settings(lines):
     result = {}
